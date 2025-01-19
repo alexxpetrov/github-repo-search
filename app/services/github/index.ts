@@ -13,6 +13,8 @@ export type IGithubIssuesApiParams = IGithubPullsApiParams & { state: IIssueStat
 export type IRepoIssues = Endpoints['GET /repos/{owner}/{repo}/issues']['response'];
 export type IRepoPulls = Endpoints['GET /repos/{owner}/{repo}/pulls']['response'];
 
+const ITEMS_PER_PAGE_LIMIT = 100;
+
 export const githubApi = {
   fetchGithubIssues: async ({ owner, repo, state }: IGithubIssuesApiParams): Promise<IRepoIssues['data'] | []> => {
     try {
@@ -20,7 +22,7 @@ export const githubApi = {
         owner,
         repo,
         state,
-        per_page: 100,
+        per_page: ITEMS_PER_PAGE_LIMIT,
         headers: {
           'X-GitHub-Api-Version': '2022-11-28',
         },
@@ -37,7 +39,7 @@ export const githubApi = {
         owner,
         repo,
         state: DEFAULT_STATE,
-        per_page: 100,
+        per_page: ITEMS_PER_PAGE_LIMIT,
         headers: {
           'X-GitHub-Api-Version': '2022-11-28',
         },
@@ -63,6 +65,6 @@ export const githubApiMiddleware = async ({ owner, repo, state }: IGithubApiPara
     case FilterType.CLOSED:
       return githubApi.fetchGithubIssues({ owner, repo, state });
     default:
-      return githubApi.fetchGithubIssues({ owner, repo, state: 'all' });
+      return githubApi.fetchGithubIssues({ owner, repo, state: DEFAULT_STATE });
   }
 };

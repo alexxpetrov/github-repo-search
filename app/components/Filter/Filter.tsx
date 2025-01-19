@@ -9,7 +9,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { memo } from 'react';
 
 export const Filter = memo(() => {
-  const { setFilter, setLoading } = useGithubStore(['setLoading', 'setFilter']);
+  const { setLoading } = useGithubStore(['setLoading']);
 
   const router = useRouter();
   const pathname = usePathname();
@@ -18,7 +18,6 @@ export const Filter = memo(() => {
   const mutation = useRepoListMutation({ owner, repo, state });
 
   const handleChangeFilter = (newFilter: FilterType) => {
-    setFilter(newFilter);
     setLoading(true);
     mutation.mutate(newFilter);
 
