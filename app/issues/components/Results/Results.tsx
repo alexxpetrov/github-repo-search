@@ -8,7 +8,7 @@ import { SkeletonDemo } from '../Skeleton/Skeleton';
 
 const DynamicIssueList = dynamic(() => import('@/issues/components/IssueList/IssueList'));
 
-export default function Results() {
+export default async function Results() {
   return (
     <div className="container mx-auto mt-10 max-w-xl">
       <Link href={ROOT_ROUTE}>
