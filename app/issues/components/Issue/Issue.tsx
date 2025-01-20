@@ -1,5 +1,6 @@
 import type { IRepoIssues, IRepoPulls } from '@/internal/services/github';
 import { useQueryParams } from '@/internal/hooks/useQueryParams';
+import { FilterType } from '@/internal/store/issues';
 import { ChatBubbleLeftEllipsisIcon, CheckCircleIcon, CodeBracketIcon, ExclamationCircleIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '../../../shared-components/ui/card';
@@ -11,7 +12,7 @@ export const Issue = ({ issue }: { issue: IRepoIssues['data'][0] | IRepoPulls['d
     <Card className="max-w-[500px]">
       <CardHeader>
         {/* @ts-expect-error PR type doesn't include 'pull_request' key */}
-        {(state === 'pr' || issue.pull_request)
+        {(state === FilterType.PR || issue.pull_request)
           ? (
               <span className="flex items-center gap-1 text-indigo-600">
                 <CodeBracketIcon className="size-5" />
@@ -28,7 +29,7 @@ export const Issue = ({ issue }: { issue: IRepoIssues['data'][0] | IRepoPulls['d
                 </span>
               </span>
             )}
-        {issue.state === 'closed'
+        {issue.state === FilterType.CLOSED
           ? (
               <div className="flex items-center gap-1 text-red-600">
                 <ExclamationCircleIcon className="size-5" />
