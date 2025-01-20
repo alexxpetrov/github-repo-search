@@ -2,11 +2,10 @@ import { ROOT_ROUTE } from '@/internal/routes';
 import { Button } from '@/shared-components/ui/button';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { Suspense } from 'react';
 import { Filter } from '../Filter/Filter';
 import { SkeletonDemo } from '../Skeleton/Skeleton';
 
-const DynamicIssueList = dynamic(() => import('@/issues/components/IssueList/IssueList'));
+const DynamicIssueList = dynamic(() => import('@/issues/components/IssueList/IssueList'), { loading: () => <SkeletonDemo /> });
 
 export default async function Results() {
   return (
@@ -17,9 +16,7 @@ export default async function Results() {
         </Button>
       </Link>
       <Filter />
-      <Suspense fallback={<SkeletonDemo />}>
-        <DynamicIssueList />
-      </Suspense>
+      <DynamicIssueList />
     </div>
   );
 }
