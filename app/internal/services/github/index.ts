@@ -27,7 +27,7 @@ export const githubApi = {
           'X-GitHub-Api-Version': '2022-11-28',
         },
       });
-      return data || [];
+      return data;
     } catch {
       throw new Error('Source not found. Please retry search');
     }
@@ -44,7 +44,7 @@ export const githubApi = {
         },
       });
 
-      return data || [];
+      return data;
     } catch {
       throw new Error('Source not found. Please retry search');
     }
