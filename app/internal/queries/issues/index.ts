@@ -10,7 +10,7 @@ export const useIssueListMutation = ({ owner, repo, state }: IGithubApiParams) =
   mutationFn: (filter: FilterType) => githubApiMiddleware({ owner, repo, state: filter }),
 });
 
-export const useIssueListQuery = ({ owner, repo, state }: IGithubApiParams) => useSuspenseQuery({
+export const useSuspenseIssueListQuery = ({ owner, repo, state }: IGithubApiParams) => useSuspenseQuery({
   queryKey: [owner, repo, state, GITHUB_ISSUES_QUERY_KEY],
   queryFn: () => githubApiMiddleware({ owner, repo, state }),
 });

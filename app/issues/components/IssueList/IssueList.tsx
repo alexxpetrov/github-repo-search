@@ -1,14 +1,14 @@
 'use client';
 
 import { useQueryParams } from '@/internal/hooks/useQueryParams';
-import { useIssueListQuery } from '@/internal/queries/issues';
+import { useSuspenseIssueListQuery } from '@/internal/queries/issues';
 import { Issue } from '../Issue/Issue';
 import { SkeletonDemo } from '../Skeleton/Skeleton';
 
 export default function IssueList() {
   const { owner, repo, state } = useQueryParams();
 
-  const { data, isFetching } = useIssueListQuery({ owner, repo, state });
+  const { data, isFetching } = useSuspenseIssueListQuery({ owner, repo, state });
 
   if (isFetching) {
     return <SkeletonDemo />;
