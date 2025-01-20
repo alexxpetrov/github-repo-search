@@ -1,7 +1,7 @@
 'use client';
 
 import { useQueryParams } from '@/internal/hooks/useQueryParams';
-import { useRepoListSuspenseQuery } from '@/internal/queries/issues';
+import { useIssueListSuspenseQuery } from '@/internal/queries/issues';
 import { useIssuesStore } from '@/internal/store/issues';
 import { memo, useEffect } from 'react';
 import { Issue } from '../Issue/Issue';
@@ -11,7 +11,7 @@ export const IssueList = memo(() => {
   const { loading, setLoading } = useIssuesStore(['setLoading', 'loading']);
   const { owner, repo, state } = useQueryParams();
 
-  const { data } = useRepoListSuspenseQuery({ owner, repo, state });
+  const { data } = useIssueListSuspenseQuery({ owner, repo, state });
 
   useEffect(() => {
     setLoading(false);

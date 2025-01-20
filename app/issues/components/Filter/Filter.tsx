@@ -3,7 +3,7 @@
 import type { FilterType } from '@/internal/store/issues';
 import { useQueryParams } from '@/internal/hooks/useQueryParams';
 import { generateUrlQuery } from '@/internal/lib/url/url';
-import { useRepoListMutation } from '@/internal/queries/issues';
+import { useIssueListMutation } from '@/internal/queries/issues';
 import { useIssuesStore } from '@/internal/store/issues';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared-components/ui/select';
 import { usePathname, useRouter } from 'next/navigation';
@@ -25,7 +25,7 @@ export const Filter = memo(() => {
   const pathname = usePathname();
   const { owner, repo, state, searchParams } = useQueryParams();
 
-  const mutation = useRepoListMutation({ owner, repo, state });
+  const mutation = useIssueListMutation({ owner, repo, state });
 
   const handleChangeFilter = (newFilter: FilterType) => {
     setLoading(true);

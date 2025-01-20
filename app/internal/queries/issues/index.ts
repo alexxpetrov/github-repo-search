@@ -5,12 +5,12 @@ import { useMutation, useSuspenseQuery } from '@tanstack/react-query';
 import { getQueryClient } from '../utils';
 import { GITHUB_ISSUES_QUERY_KEY } from './constants';
 
-export const useRepoListMutation = ({ owner, repo, state }: IGithubApiParams) => useMutation({
+export const useIssueListMutation = ({ owner, repo, state }: IGithubApiParams) => useMutation({
   mutationKey: [owner, repo, state, GITHUB_ISSUES_QUERY_KEY],
   mutationFn: (filter: FilterType) => githubApiMiddleware({ owner, repo, state: filter }),
 });
 
-export const useRepoListSuspenseQuery = ({ owner, repo, state }: IGithubApiParams) => useSuspenseQuery({
+export const useIssueListSuspenseQuery = ({ owner, repo, state }: IGithubApiParams) => useSuspenseQuery({
   queryKey: [owner, repo, state, GITHUB_ISSUES_QUERY_KEY],
   queryFn: () => githubApiMiddleware({ owner, repo, state }),
 });
