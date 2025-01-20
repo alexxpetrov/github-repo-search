@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '../../../shared-compon
 
 export const Issue = ({ issue }: { issue: IRepoIssues['data'][0] | IRepoPulls['data'][0] }) => {
   const { state } = useQueryParams();
+  const formattedDate = formatIssueDate(issue.created_at);
 
   return (
     <Card className="max-w-[500px]">
@@ -64,7 +65,7 @@ export const Issue = ({ issue }: { issue: IRepoIssues['data'][0] | IRepoPulls['d
         {' '}
         opened at
         {' '}
-        {formatIssueDate(issue.created_at)}
+        {formattedDate}
         {' '}
         by
         {' '}
