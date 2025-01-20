@@ -25,11 +25,11 @@ export const Filter = memo(() => {
   const mutation = useIssueListMutation({ owner, repo, state });
 
   const handleChangeFilter = (newFilter: FilterType) => {
-    mutation.mutate(newFilter);
-
     const query = generateUrlQuery(searchParams, newFilter);
 
     router.replace(`${pathname}${query}`);
+
+    mutation.mutate(newFilter);
   };
 
   const selectDefaultValue = FILTER_OPTIONS[state]?.value ?? '';
