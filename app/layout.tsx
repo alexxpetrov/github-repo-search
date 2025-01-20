@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
 
 import { Inter } from 'next/font/google';
-import AppLayout from './layer';
-import './styles/globals.css';
+import { ReactQueryProvider } from './providers';
+import './internal/styles/globals.css';
 
-// If loading a variable font, you don't need to specify the font weight
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -20,7 +19,11 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-screen bg-white text-gray-900`} style={{ margin: 0 }}>
-        <AppLayout>{children}</AppLayout>
+        <ReactQueryProvider>
+          <div className="m-auto box-border grid w-2/3 grid-cols-2 gap-x-6 p-8">
+            {children}
+          </div>
+        </ReactQueryProvider>
       </body>
     </html>
   );

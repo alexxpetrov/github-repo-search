@@ -58,6 +58,7 @@ export default antfu(
       'jsx-a11y/no-autofocus': 'off',
       'no-restricted-globals': 'warn',
       'react-compiler/react-compiler': 'error',
+      'style/comma-dangle': 'warn',
     },
   },
 );

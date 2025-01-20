@@ -5,7 +5,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query';
 import dynamic from 'next/dynamic';
-import { getQueryClient } from './get-query-client';
+import { getQueryClient } from './internal/queries/utils';
 
 const ReactQueryDevtoolsProduction = dynamic(() =>
   import('@tanstack/react-query-devtools/production').then(d => ({

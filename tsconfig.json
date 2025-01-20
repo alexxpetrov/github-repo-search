@@ -9,7 +9,8 @@
     "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./app/*"],
-      "@/components/": ["./app/components/*"]
+      "@/internal": ["./internal/*"],
+      "@/components/": ["app/shared-components/*"]
     },
     "resolveJsonModule": true,
     "allowJs": true,
