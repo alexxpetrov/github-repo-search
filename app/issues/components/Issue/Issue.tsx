@@ -1,5 +1,6 @@
 import type { IRepoIssues, IRepoPulls } from '@/internal/services/github';
 import { useQueryParams } from '@/internal/hooks/useQueryParams';
+import { formatIssueDate } from '@/internal/lib/date/date';
 import { FilterType } from '@/internal/store/issues';
 import { ChatBubbleLeftEllipsisIcon, CheckCircleIcon, CodeBracketIcon, ExclamationCircleIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
@@ -63,7 +64,7 @@ export const Issue = ({ issue }: { issue: IRepoIssues['data'][0] | IRepoPulls['d
         {' '}
         opened at
         {' '}
-        {new Intl.DateTimeFormat('en-US').format(new Date(issue.created_at))}
+        {formatIssueDate(issue.created_at)}
         {' '}
         by
         {' '}
