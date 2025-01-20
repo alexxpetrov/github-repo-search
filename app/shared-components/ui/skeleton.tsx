@@ -1,4 +1,4 @@
-import { cn } from "@/internal/styles/utils";
+import { cn } from '@/internal/styles/utils';
 
 function Skeleton({
   className,
