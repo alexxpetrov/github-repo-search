@@ -4,7 +4,6 @@ import type { FilterType } from '@/internal/store/issues';
 import { useQueryParams } from '@/internal/hooks/useQueryParams';
 import { generateUrlQuery } from '@/internal/lib/url/url';
 import { useIssueListMutation } from '@/internal/queries/issues';
-import { useIssuesStore } from '@/internal/store/issues';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared-components/ui/select';
 import { usePathname, useRouter } from 'next/navigation';
 import { memo } from 'react';
@@ -19,8 +18,6 @@ const FILTER_OPTIONS = {
 const FILTER_LIST = Object.values(FILTER_OPTIONS);
 
 export const Filter = memo(() => {
-  const { setLoading } = useIssuesStore(['setLoading']);
-
   const router = useRouter();
   const pathname = usePathname();
   const { owner, repo, state, searchParams } = useQueryParams();
@@ -28,7 +25,6 @@ export const Filter = memo(() => {
   const mutation = useIssueListMutation({ owner, repo, state });
 
   const handleChangeFilter = (newFilter: FilterType) => {
-    setLoading(true);
     mutation.mutate(newFilter);
 
     const query = generateUrlQuery(searchParams, newFilter);

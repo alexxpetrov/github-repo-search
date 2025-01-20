@@ -1,27 +1,21 @@
 'use client';
 
 import { useQueryParams } from '@/internal/hooks/useQueryParams';
-import { useIssueListSuspenseQuery } from '@/internal/queries/issues';
-import { useIssuesStore } from '@/internal/store/issues';
-import { memo, useEffect } from 'react';
+import { useIssueListQuery } from '@/internal/queries/issues';
+import { memo } from 'react';
 import { Issue } from '../Issue/Issue';
 import { SkeletonDemo } from '../Skeleton/Skeleton';
 
 export const IssueList = memo(() => {
-  const { loading, setLoading } = useIssuesStore(['setLoading', 'loading']);
   const { owner, repo, state } = useQueryParams();
 
-  const { data } = useIssueListSuspenseQuery({ owner, repo, state });
+  const { data, isFetching } = useIssueListQuery({ owner, repo, state });
 
-  useEffect(() => {
-    setLoading(false);
-  }, [data, setLoading]);
-
-  if (loading) {
+  if (isFetching) {
     return <SkeletonDemo />;
   }
 
-  if (!data.length) {
+  if (!data?.length) {
     return <div>No results</div>;
   }
 

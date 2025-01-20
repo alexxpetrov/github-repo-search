@@ -5,17 +5,13 @@ import { createStoreHook } from '../config';
 
 type IssuesStore = {
   error: string | null;
-  loading: boolean;
   resetFormError: () => void;
-  setLoading: (loading: boolean) => Promise<void>;
   setFormError: (error: string) => void;
 };
 
 export const issuesStore = create(immer<IssuesStore>(set => ({
   error: null,
-  loading: false,
 
-  setLoading: async (loading: boolean) => set({ loading }),
   setFormError: (error: string) => {
     set({ error });
   },
