@@ -2,11 +2,10 @@
 
 import { useQueryParams } from '@/internal/hooks/useQueryParams';
 import { useIssueListQuery } from '@/internal/queries/issues';
-import { memo } from 'react';
 import { Issue } from '../Issue/Issue';
 import { SkeletonDemo } from '../Skeleton/Skeleton';
 
-export const IssueList = memo(() => {
+export default function IssueList() {
   const { owner, repo, state } = useQueryParams();
 
   const { data, isFetching } = useIssueListQuery({ owner, repo, state });
@@ -26,4 +25,4 @@ export const IssueList = memo(() => {
       ))}
     </ul>
   );
-});
+}
