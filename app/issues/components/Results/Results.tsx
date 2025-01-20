@@ -1,5 +1,6 @@
 'use client';
 
+import { ROOT_ROUTE } from '@/internal/routes';
 import { IssueList } from '@/issues/components/IssueList/IssueList';
 import { Button } from '@/shared-components/ui/button';
 import { useRouter } from 'next/navigation';
@@ -12,7 +13,7 @@ export default function Results() {
 
   return (
     <div className="container mx-auto mt-10 max-w-xl">
-      <Button onClick={() => router.back()} variant="secondary" className="my-4">
+      <Button onClick={() => router.replace(ROOT_ROUTE)} variant="secondary" className="my-4">
         Go Back
       </Button>
       <Filter />
