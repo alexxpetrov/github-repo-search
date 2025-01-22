@@ -71,7 +71,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 > Describe the major design/build decisions and why you made them.
 
-- I've decided to keep data and UI separately to effectively utilize Tanstack query and SSR, thus allowing us to make the data available faster on first load, while keeping the user satisfied with instant app response (e.g. loading animation). Zustand is used to keep the UI (form state and loading) organized
+- I've decided to keep data and UI separately to effectively utilize Tanstack query and SSR, thus allowing us to make the data available faster on first load, while keeping the user satisfied with instant app response (e.g. loading animation).
 
 > How long did the assignment take (in hours)? Please break down your answer into buckets (e.g. "Learning Framework", "Coding", "Debugging").
 
