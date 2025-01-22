@@ -51,43 +51,52 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ### Planning
 
 > What do you think are the greatest areas of risk in completing the project?
-Input and query parameters validation
-Error handling
-UI flow and Data flow separation
+
+- Input and query parameters validation
+- Error handling
+- UI flow and Data flow separation
 
 > What changes/additions would you make to the design?
-I'd suggest a candidate to check the way "search" is implemented by Github team. It's easy to recognize why certain decisions were made
+
+- I'd prefer to have the search and results functionality on a single page, it's more convenient.
 
 > List a two or three features that you would consider implementing in the future that would add significant value to the project.
-Pagination
-Tooltip with extra information about the issue
+
+- Pagination
+- Tooltip with extra information about the issue
 
 ---
 
 ### Looking Back
 
 > Describe the major design/build decisions and why you made them.
-  I've decided to keep data and UI separately to effectively utilize Tanstack query and SSR, thus allowing us to make the data available faster on first load, while keeping the user satisfied with instant app response (e.g. loading animation). Zustand is used to keep the UI (form state and loading) organized
+
+- I've decided to keep data and UI separately to effectively utilize Tanstack query and SSR, thus allowing us to make the data available faster on first load, while keeping the user satisfied with instant app response (e.g. loading animation). Zustand is used to keep the UI (form state and loading) organized
 
 > How long did the assignment take (in hours)? Please break down your answer into buckets (e.g. "Learning Framework", "Coding", "Debugging").
-  Longer than I originally anticipated.
 
-Reading Github API docs: 0.5 hour
-Learning Next.js: ~0.5-1 hour to organize routes, handle errors, read additional info on SSR.
-Exploring Shadcn UI: ~0.5-1 hour. Didn't use it before
-Coding: 4-5 hours. Setting up folder structure, organizing files, data/ui stores, creating components etc.
-Debugging: ~1 hour. Had a couple issues with hydration and query parameters validation
+Longer than I originally anticipated.
+
+- Reading Github API docs: 0.5 hour
+- Learning Next.js: ~0.5-1 hour to organize routes, handle errors, read additional info on SSR.
+- Exploring Shadcn UI: ~0.5-1 hour. Didn't use it before
+- Coding: 4-5 hours. Setting up folder structure, organizing files, data/ui stores, creating components etc.
+- Debugging: ~1 hour. Had a couple issues with hydration and query parameters validation
 
 I had a benefit of having my own next.js boilerplate (https://github.com/alexxpetrov/next-js-boilerplate), which made this section significantly faster
 
 > If you could go back and give yourself advice at the beginning of the project, what would it be?
+
   Do not fetch the data once and filter it on the front end. ( Originally I thought I'd use filters on in-store data instead of re-fetching it )
 
 > Did you learn anything new?
+
   Using Shadcn is a bless. Got much better at SSR Data flow and optimizations.
 
 > Do you feel that this assignment allowed you to showcase your abilities effectively?
+
   Yes.
 
 > Are there any significant web development-related skills that you possess that were not demonstrated in this exercise? If so, what are they?
+
   I think I did good enough with the stack I've chosen
