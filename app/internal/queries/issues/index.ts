@@ -1,5 +1,5 @@
 import type { IGithubApiParams } from '@/internal/services/github';
-import type { FilterType } from '@/internal/store/issues';
+import type { FilterType } from '@/internal/types';
 import { githubApiMiddleware } from '@/internal/services/github';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { getQueryClient } from '../utils';

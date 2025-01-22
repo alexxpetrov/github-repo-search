@@ -1,6 +1,6 @@
 'use client';
 
-import type { FilterType } from '@/internal/store/issues';
+import type { FilterType } from '@/internal/types';
 import { useQueryParams } from '@/internal/hooks/useQueryParams';
 import { generateUrlQuery } from '@/internal/lib/url/url';
 import { useIssueListMutation } from '@/internal/queries/issues';

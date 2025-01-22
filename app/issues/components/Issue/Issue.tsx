@@ -1,7 +1,7 @@
 import type { IRepoIssues, IRepoPulls } from '@/internal/services/github';
 import { useQueryParams } from '@/internal/hooks/useQueryParams';
 import { formatIssueDate } from '@/internal/lib/date/date';
-import { FilterType } from '@/internal/store/issues';
+import { FilterType } from '@/internal/types';
 import { ChatBubbleLeftEllipsisIcon, CheckCircleIcon, CodeBracketIcon, ExclamationCircleIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '../../../shared-components/ui/card';

@@ -3,7 +3,6 @@ import nextPlugin from '@next/eslint-plugin-next';
 import jestDom from 'eslint-plugin-jest-dom';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import playwright from 'eslint-plugin-playwright';
-import reactCompiler from 'eslint-plugin-react-compiler';
 import tailwind from 'eslint-plugin-tailwindcss';
 import testingLibrary from 'eslint-plugin-testing-library';
 
@@ -28,7 +27,6 @@ export default antfu(
   {
     plugins: {
       '@next/next': nextPlugin,
-      'react-compiler': reactCompiler,
     },
     rules: {
       ...nextPlugin.configs.recommended.rules,

@@ -1,9 +1,9 @@
 import type { Endpoints } from '@octokit/types';
 
-import { FilterType } from '@/internal/store/issues';
-import { DEFAULT_STATE } from '@/internal/store/issues/constants';
 import { Octokit } from 'octokit';
 import { config } from '../config';
+import { DEFAULT_ISSUE_STATE } from '@/internal/lib/constants';
+import { FilterType } from '@/internal/types';
 
 const octo = new Octokit({ auth: config.OCTO_API_KEY });
 
@@ -37,7 +37,7 @@ export const githubApi = {
       const { data } = await octo.request('GET /repos/{owner}/{repo}/pulls', {
         owner,
         repo,
-        state: DEFAULT_STATE,
+        state: DEFAULT_ISSUE_STATE,
         per_page: ITEMS_PER_PAGE_LIMIT,
         headers: {
           'X-GitHub-Api-Version': '2022-11-28',

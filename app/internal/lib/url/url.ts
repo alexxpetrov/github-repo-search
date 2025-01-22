@@ -1,4 +1,4 @@
-import type { FilterType } from '@/internal/store/issues';
+import type { FilterType } from '@/internal/types';
 import type { ReadonlyURLSearchParams } from 'next/navigation';
 import { QUERY_STATE_NAME } from '@/internal/hooks/useQueryParams';
 import { ISSUE_ROUTE } from '@/internal/routes';
